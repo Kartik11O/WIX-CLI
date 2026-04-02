@@ -1,0 +1,12 @@
+.wix/
+dist/
+.astro/
+node_modules/
+*.log
+npm-debug.log*
+.env
+.env.local
+.env.production
+.DS_Store
+.idea/
+out

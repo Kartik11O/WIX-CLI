@@ -1,0 +1,35 @@
+Bookings Service Creator – Wix CLI app
+=====================================
+
+This folder is a hand-scaffolded Wix CLI app (same shape as npm create @wix/new).
+
+1) App ID (required — fixes "404" on env pull)
+   - wix.config.json must contain the App ID of a Custom App that exists under YOUR
+     Wix account. A random placeholder UUID will NOT work.
+   - Easiest: in Windows Terminal or CMD (interactive), run:
+       npm create @wix/new@latest app
+     Choose "Create a new Wix App", then copy that project's wix.config.json "appId"
+     into this folder's wix.config.json (or work directly in the generated folder and
+     copy this project's src/ over).
+   - Or: open https://manage.wix.com/account/custom-apps , pick your app, copy its
+     App ID into wix.config.json.
+
+2) Environment (required for build/dev — fixes "Missing WIX_CLIENT_ID")
+   - After step 1, open an interactive terminal in THIS folder and run:
+       npx wix env pull
+     Or double-click pull-env.cmd (opens a console in this directory).
+   - That creates/updates .env.local with WIX_CLIENT_ID and related WIX_CLIENT_* vars.
+   - If env pull says "404" or "Failed to pull": the appId in wix.config.json is still
+     wrong or the app is not linked to CLI — redo step 1.
+   - Do not hand-edit WIX_CLIENT_* values unless Wix support/docs tell you to.
+
+3) App permissions
+   - In the app dashboard: add "Manage Bookings" (SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS).
+   - Reinstall / re-authorize the app on your development site if prompted.
+
+4) Site setup
+   - Development site must have Wix Bookings and at least one Bookings service category.
+
+5) Run locally
+   npm run dev
+   Open the app's dashboard page "Bookings Service" and use the button to create a sample CLASS service.
